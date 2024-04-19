@@ -12,24 +12,30 @@ The wrapper is auto-generated from the message definitions ([proto files](https:
 
 ## Trying the Examples
 
-1. Start a simulator as described [here.](https://mavsdk.mavlink.io/main/en/cpp/examples/#setting-up-a-simulator)
+1. Initialize proto submodule and build
+
+```bash
+git submodule init
+git submodule update
+cargo build
+```
+
+2. Start a simulator as described [here.](https://mavsdk.mavlink.io/main/en/cpp/examples/#setting-up-a-simulator)
 
 ```bash
 make px4_sitl jmavsim
 ```
 
-2. Run **MAVSDK Backend** on `localhost:50051`. [More info here.](https://mavsdk.mavlink.io/main/en/cpp/guide/build_mavsdk_server.html)
+3. Run **MAVSDK Backend** on `localhost:50051`. [More info here.](https://mavsdk.mavlink.io/main/en/cpp/guide/build_mavsdk_server.html)
 
 ```bash
 cd [path_to_MAVSDK]
 ./build/default/src/mavsdk_server/src/mavsdk_server
 ```
 
-# Run examples
+4. Run examples
 
-3. Run examples
-
-- `info`
+- Info
 
 ```bash
 $ cargo run --example info
@@ -38,7 +44,7 @@ $ cargo run --example info
 Version received: Version { flight_sw_major: 1, flight_sw_minor: 10, flight_sw_patch: 0, flight_sw_vendor_major: 0, flight_sw_vendor_minor: 0, flight_sw_vendor_patch: 0, os_sw_major: 8, os_sw_minor: 2, os_sw_patch: 0 }
 ```
 
-- `mocap`
+- Mocap
 
 ```bash
 $ cargo run --example mocap
@@ -49,7 +55,7 @@ Sending SetVisionPositionEstimateRequest { vision_position_estimate: Some(Vision
 All sent successfully!
 ```
 
-- `telemetry`
+- Telemetry
 
 ```bash
 $ cargo run --example telemery
@@ -61,7 +67,7 @@ Odometry: Odometry { time_usec: 0, frame_id: EstimNed, child_frame_id: Undef, po
 ...
 ```
 
-- takoff and land
+- Takeoff and land
 
 ```bash
 cargo run --example takeoff_and_land
