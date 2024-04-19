@@ -39,6 +39,12 @@ cd [path_to_MAVSDK]
 
 ```bash
 $ cargo run --example info
+
+```
+
+Expected output:
+
+```bash
     Finished dev [unoptimized + debuginfo] target(s) in 0.01s
      Running `target/debug/examples/info`
 Version received: Version { flight_sw_major: 1, flight_sw_minor: 10, flight_sw_patch: 0, flight_sw_vendor_major: 0, flight_sw_vendor_minor: 0, flight_sw_vendor_patch: 0, os_sw_major: 8, os_sw_minor: 2, os_sw_patch: 0 }
@@ -47,7 +53,12 @@ Version received: Version { flight_sw_major: 1, flight_sw_minor: 10, flight_sw_p
 - Mocap
 
 ```bash
-$ cargo run --example mocap
+cargo run --example mocap
+```
+
+Expected output:
+
+```bash
 Finished dev [unoptimized + debuginfo] target(s) in 0.31s
  Running `target/debug/examples/mocap`
 ...
@@ -58,7 +69,12 @@ All sent successfully!
 - Telemetry
 
 ```bash
-$ cargo run --example telemery
+cargo run --example telemery
+```
+
+Expected output:
+
+```bash
    Compiling libmavsdk v0.1.0 (/home/ildar/sw/mavsdk-rust)
     Finished dev [unoptimized + debuginfo] target(s) in 4.92s
      Running `target/debug/examples/telemetry`
@@ -71,6 +87,12 @@ Odometry: Odometry { time_usec: 0, frame_id: EstimNed, child_frame_id: Undef, po
 
 ```bash
 cargo run --example takeoff_and_land
+
+```
+
+Expected output:
+
+```bash
     Finished dev [unoptimized + debuginfo] target(s) in 0.02s
      Running `target/debug/examples/takeoff_and_land`
 Waiting for drone to be ready...
