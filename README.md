@@ -38,7 +38,7 @@ cd [path_to_MAVSDK]
 - Info
 
 ```bash
-$ cargo run --example info
+cargo run --example info
 
 ```
 
