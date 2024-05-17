@@ -1,4 +1,4 @@
-const PROTO_INCLUDE_PATH: &str = "proto/protos";
+const PROTO_INCLUDE_PATH: &str = "./proto/protos";
 
 const PLUGINS: &[&str] = &[
     "action",
@@ -16,14 +16,23 @@ const PLUGINS: &[&str] = &[
     "telemetry",
 ];
 
-fn main() -> std::io::Result<()> {
-    for plugin in PLUGINS {
-        let proto_path = format!("{PROTO_INCLUDE_PATH}/{plugin}/{plugin}.proto");
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let proto_files: Vec<String> = PLUGINS.iter()
+        .map(|&plugin| format!("proto/protos/{}/{}.proto", plugin, plugin))
+        .collect();
 
-        tonic_build::configure()
-            .build_server(false)
-            .out_dir("src/grpc/")
-            .compile(&[proto_path.as_str()], &[PROTO_INCLUDE_PATH])?;
-    }
+    let mut config = prost_build::Config::new();
+    prost_reflect_build::Builder::new()
+        .descriptor_pool("crate::DESCRIPTOR_POOL")
+        .configure(
+            &mut config,
+            &proto_files,
+            &[PROTO_INCLUDE_PATH],
+        )?;
+
+    tonic_build::configure()
+        .build_server(false)
+        .compile_with_config(config, &proto_files, &[PROTO_INCLUDE_PATH])?;
+
     Ok(())
 }
