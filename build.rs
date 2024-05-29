@@ -1,19 +1,19 @@
 const PROTO_INCLUDE_PATH: &str = "./proto/protos";
 
 const PLUGINS: &[&str] = &[
-    "action",
-    "calibration",
-    "camera",
-    "core",
-    "geofence",
-    "gimbal",
-    "info",
-    "mission",
-    "mocap",
-    "offboard",
-    "param",
-    "shell",
-    "telemetry",
+    // "action",
+    // "calibration",
+    // "camera",
+    // "core",
+    // "geofence",
+    // "gimbal",
+    // "info",
+    // "mission",
+    // "mocap",
+    // "offboard",
+    // "param",
+    // "shell",
+    "telemetry", // Note: For some reason having other plugins is causing corrupted mcaps
 ];
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
